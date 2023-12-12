@@ -25,7 +25,7 @@
         <action id="playPauseActionID"
                 class="com.github.dlc.SpotifyIdeaPlugin.actions.TogglePlayPauseAction"
                 text="Spotify-IDEA-PlayerToggle Play"
-                description="Tell Spotify-IDEA-Playerto toggle playing or pausing"/>
+                description="Tell Spotify-IDEA-Player to toggle playing or pausing"/>
         <action id="prevTrackActionID"
                 class="com.github.dlc.SpotifyIdeaPlugin.actions.PrevTrackAction"
                 text="Spotify-IDEA-Player Previous Track"
