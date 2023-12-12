@@ -1,0 +1,41 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <id>org.jetbrains.plugins.template</id>
+    <name>Spotify-IDEA-Player</name>
+    <vendor>DLC</vendor>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <resource-bundle>messages.MyBundle</resource-bundle>
+
+
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationService serviceImplementation="com.github.dlc.SpotifyIdeaPlugin.services.MyApplicationService"/>
+        <projectService serviceImplementation="com.github.dlc.SpotifyIdeaPlugin.services.MyProjectService"/>
+        <statusBarWidgetFactory implementation="com.github.dlc.SpotifyIdeaPlugin.services.MyStatusBarWidgetFactory"/>
+
+    </extensions>
+
+    <applicationListeners>
+        <listener class="com.github.dlc.SpotifyIdeaPlugin.listeners.MyProjectManagerListener"
+                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
+    </applicationListeners>
+
+    <actions>
+        <action id="playPauseActionID"
+                class="com.github.dlc.SpotifyIdeaPlugin.actions.TogglePlayPauseAction"
+                text="Spotify-IDEA-PlayerToggle Play"
+                description="Tell Spotify-IDEA-Playerto toggle playing or pausing"/>
+        <action id="prevTrackActionID"
+                class="com.github.dlc.SpotifyIdeaPlugin.actions.PrevTrackAction"
+                text="Spotify-IDEA-Player Previous Track"
+                description="Tell Spotify-IDEA-Player to play the previous track"/>
+        <action id="nextTackActionID"
+                class="com.github.dlc.SpotifyIdeaPlugin.actions.NextTrackAction"
+                text="Spotify-IDEA-Player Next Track"
+                description="Tell Spotify-IDEA-Player to play the next track"/>
+        <group id="SpotifyPlugin.SpotifyGroup" icon="/icons/spotify.svg">
+            <add-to-group group-id="NavBarToolBar" anchor="before" relative-to-action="ToolbarRunGroup"/>
+        </group>
+    </actions>
+</idea-plugin>
